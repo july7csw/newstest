@@ -1,7 +1,7 @@
 #-*- coding:UTF-8 -*-
 
 import pickle
-import numpy as np
+# import numpy as np
 from django.shortcuts import render
 
 
@@ -24,5 +24,6 @@ def est(text):
     piclf = pickle.load(pcklFile)
     text = [text]
     label = {0: '부정', 1: '중립', 2: '긍정'}
-    return label[piclf.predict(text)[0]], np.max(piclf.predict_proba(text) * 100)
+    # return label[piclf.predict(text)[0]], np.max(piclf.predict_proba(text) * 100)
+    return label[piclf.predict(text)[0]]
 
