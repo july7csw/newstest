@@ -1,32 +1,32 @@
 #-*- coding:UTF-8 -*-
 
-import pickle
-import numpy as np
+# import pickle
+# import numpy as np
 from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 
 
-def replytest(request):
-    resultText = ""
-    replyText = ""
-    if request.method == "POST":
-        reply = request.POST['reply']
-        label = est(reply)[0]
-        acc = est(reply)[1]
-        replyText = reply
-        resultText = "결과: " + label + " / 정확도: " + str(acc) + "%"
-    else:
-        replyText = ""
-        resultText = ""
-    return render(request, 'newstest/replytest.html', {"resultText" : resultText, "replyText" : replyText})
-
-def est(text):
-    pcklFile = open("estimate01.pkl", "rb")
-    piclf = pickle.load(pcklFile)
-    text = [text]
-    label = {0: '부정', 1: '중립', 2: '긍정'}
-    return label[piclf.predict(text)[0]], np.max(piclf.predict_proba(text) * 100)
+# def replytest(request):
+#     resultText = ""
+#     replyText = ""
+#     if request.method == "POST":
+#         reply = request.POST['reply']
+#         label = est(reply)[0]
+#         acc = est(reply)[1]
+#         replyText = reply
+#         resultText = "결과: " + label + " / 정확도: " + str(acc) + "%"
+#     else:
+#         replyText = ""
+#         resultText = ""
+#     return render(request, 'newstest/replytest.html', {"resultText" : resultText, "replyText" : replyText})
+#
+# def est(text):
+#     pcklFile = open("estimate01.pkl", "rb")
+#     piclf = pickle.load(pcklFile)
+#     text = [text]
+#     label = {0: '부정', 1: '중립', 2: '긍정'}
+#     return label[piclf.predict(text)[0]], np.max(piclf.predict_proba(text) * 100)
 
 def getlink(request):
     medias = ["경향신문", "국민일보", "동아일보", "서울신문", "세계일보", "조선일보", "중앙일보", "한겨레신문", "디지털타임스", "매일경제", "머니투데이", "서울경제",

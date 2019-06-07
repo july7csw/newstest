@@ -3,6 +3,6 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [
-    path('', views.replytest),
-    path('getlink/', views.getlink),
+    # path('', views.replytest),
+    path('', views.getlink),
 ]
