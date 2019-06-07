@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TOP 기사 링크 가져오기</title>
+    <style>
+
+    </style>
+  </head>
+  <body>
+    <div style="float:left;" width="15%">
+      {% for media in medias %}
+      <p>{{media}}</p>
+      {% endfor %}
+    </div>
+    <div style="float:left;" width="84%">
+      {% for articlelink in articlelinks %}
+      <p><a href="{{articlelink}}" target="_blank">{{articlelink}}</a></p>
+      {% endfor %}
+    </div>
+  </body>
+</html>
